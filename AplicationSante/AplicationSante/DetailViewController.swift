@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
 
     var onDeletePersonne: (() -> ())?
     
-    var patient: Patien!
+    var patient: PatienData!
     @IBOutlet weak var avatar: UIImageView!
     
     
@@ -23,20 +23,47 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        self.title = patient.nomComplet()
-        commentaireLabel.text = patient.commentaireShow()
+        let ordreName = UserDefaults.standard.value(forKey: "isNameOrdre") as? Bool ?? true
         
-        if patient.genre == Patien.Genre.homme {
-            
-            avatar.image = #imageLiteral(resourceName: "masculin")
-        }else{
-            
-            avatar.image = #imageLiteral(resourceName: "feminin")
-        }
+        self.title = patient.nomComplet(ordreName: ordreName)
+        
+        commentaireLabel.text = patient.commentaire
+        
         
         let button = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deletePatien))
         
         self.navigationItem.rightBarButtonItem = button
+        
+        /*var urlRequest = URLRequest(url: URL(string: patient.pictureURL!)!)
+        
+        urlRequest.httpMethod = "get"
+        
+        
+        URLSession.shared.downloadTask(with: urlRequest) {(fileURL, URLResponse, error)
+            in
+            
+            if let fileURL = fileURL, let image = UIImage(contentsOfFile: fileURL.absoluteString){
+                
+                self.avatar.image = image
+            }
+            
+            print(error)
+            print(URLResponse)
+        }*/
+        
+        URLSession.shared.dataTask(with: URL(string: patient.pictureURL!)!){(data, response, error) in
+            print(Thread.isMainThread)
+            
+            if let data = data, let image = UIImage(data: data){
+                DispatchQueue.main.async {
+                    
+                    print(Thread.isMainThread)
+
+                    self.avatar.image = image
+                }
+            }
+        }.resume()
+        
     }
     
     func deletePatien(){
@@ -54,7 +81,6 @@ class DetailViewController: UIViewController {
         alert.addAction(destroyAction)
         
         self.present(alert, animated: true)
-        //o
     }
 
 

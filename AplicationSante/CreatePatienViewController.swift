@@ -7,22 +7,28 @@
 //
 
 import UIKit
+import CoreData
+
 
 protocol createPatienDelegate : AnyObject {
-    func createPatien(patien :Patien)
+    func createPatien(prenom: String, name: String, urlImage: String)
 }
 
 class CreatePatienViewController: UIViewController {
     
+    
+    
     @IBOutlet weak var describe: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var urlImage: UITextField!
     
     @IBOutlet weak var gender: UISwitch!
     
     @IBOutlet weak var buttonAdd: UIButton!
     
     @IBOutlet weak var progress: UIProgressView!
+    
     //Rajout d'une progressBar pour simuler l'appel d'un serveur pour utiliser les threads
     @IBOutlet weak var progressAppelServeur: UIProgressView!
     
@@ -36,9 +42,7 @@ class CreatePatienViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
+    
         // Do any additional setup after loading the view.
     }
 
@@ -58,6 +62,9 @@ class CreatePatienViewController: UIViewController {
     }
     */
     
+    /**
+     * fonction permettant en cas de changement de donnée sur le UITextField (nom) de faire avancer la progressBar de complétion
+     */
     @IBAction func fieldLastName(_ sender: UITextField) {
         guard lastName.text != "" else {
             progressLastName = 0
@@ -69,6 +76,9 @@ class CreatePatienViewController: UIViewController {
         progression()
     }
     
+    /**
+     * fonction permettant en cas de changement de donnée sur le UITextField (prenom) de faire avancer la progressBar de complétion
+     */
     @IBAction func fieldFirstName(_ sender: UITextField) {
         guard firstName.text != "" else {
             progressFirstName = 0
@@ -79,7 +89,10 @@ class CreatePatienViewController: UIViewController {
         progressFirstName = 0.3
         progression()
     }
-
+    
+    /**
+     * fonction permettant en cas de changement de donner sur le UITextField (description) de faire avancer la progressBar de complétion
+     */
     @IBAction func fieldDescribe(_ sender: UITextField) {
         guard describe.text != "" else {
             progressDescribe = 0
@@ -92,6 +105,9 @@ class CreatePatienViewController: UIViewController {
         
     }
     
+    /**
+     * factorisation de la fonction permettant de faire avancer la progressBar de complétion utiliser dans les code plus haut
+     */
     func progression(){
         var progressGlobal: Float
         progressGlobal = progressDescribe + progressLastName + progressFirstName
@@ -107,37 +123,45 @@ class CreatePatienViewController: UIViewController {
 
     }
     
+    /**
+     * fonction permettant l'ajout du patien dans la base de donnée
+     */
     @IBAction func addPatien(_ sender: Any) {
         
+        //Si on a déjà appuyer sur le bouton, on le verrouille pour éviter des inserts multiples
         guard !addBlock else {
             return
         }
-        
         addBlock = true;
         
-        let genre: Patien.Genre
+        //désactivation du genre et de la description, non suporter par le serveur
+        //let genre: Bool = gender.isOn
+        //let description: String = describe.text!
         
-        if gender.isOn {
-            genre = Patien.Genre.homme
-        }else{
-            genre = Patien.Genre.femme
-        }
+        //récupération du nom, du prénom, et de l'URL de l'image
         let name: String = lastName.text!
         let prenom: String = firstName.text!
-        let description: String = describe.text!
+        let lienImage:String
         
-        let people = Patien(nom: name, prenom: prenom, genre: genre, commentaire: description)
+        if self.urlImage.text != ""{
+            lienImage = self.urlImage.text!
+        }else{
+            lienImage = "https://tchat.chaat.fr/kiwi/assets/plugins/avatar-undefined.jpg"
+        }
         
+        //Création d'un thread pour une tache asynchrone (remplissage d'une progressBar pour simuler un appel serveur)
         DispatchQueue.global(qos: .userInitiated).async {
             
             for _ in 0..<100{
                 
+            
                 Thread.sleep(forTimeInterval : 0.05)
                 
                 let progression : Float
                 
                 progression = self.progressAppelServeur.progress + 0.01
                 
+                //Mais appel du thread main pour la modification graphique
                 DispatchQueue.main.async {
                     
                     self.progressAppelServeur.setProgress(progression, animated: true)
@@ -147,10 +171,12 @@ class CreatePatienViewController: UIViewController {
                 
             }
             
-            self.delegate?.createPatien(patien: people)
+            Thread.sleep(forTimeInterval : 0.75)
+            
+            
+            //Puis on renvois les informations au delegate pour le traitement en BDD
+            self.delegate?.createPatien(prenom: prenom, name: name, urlImage: lienImage)
             
         }
-
     }
-    
 }

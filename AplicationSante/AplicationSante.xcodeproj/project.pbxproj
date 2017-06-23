@@ -18,6 +18,13 @@
 		842EC3171EF9537D005A8114 /* CreatePatienViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842EC3151EF9537D005A8114 /* CreatePatienViewController.xib */; };
 		842EC31A1EF95578005A8114 /* Patien.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EC3191EF95578005A8114 /* Patien.swift */; };
 		842EC31C1EF967F8005A8114 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EC31B1EF967F8005A8114 /* DetailViewController.swift */; };
+		847750F41EFAA9E600A672BC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847750F21EFAA9E600A672BC /* SettingViewController.swift */; };
+		847750F51EFAA9E600A672BC /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847750F31EFAA9E600A672BC /* SettingViewController.xib */; };
+		847750F71EFABC1000A672BC /* names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847750F61EFABC1000A672BC /* names.plist */; };
+		847750FB1EFABEAC00A672BC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847750FA1EFABEAC00A672BC /* Default-568h@2x.png */; };
+		84F8FE811EFBAB5200D0C7F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8FE801EFBAB5200D0C7F0 /* CoreData.framework */; };
+		84F8FE841EFBABAA00D0C7F0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F8FE821EFBABAA00D0C7F0 /* Model.xcdatamodeld */; };
+		84F8FEC71EFC108F00D0C7F0 /* AccessBDD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8FEC61EFC108F00D0C7F0 /* AccessBDD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +50,6 @@
 		842EC2E51EF94A2B005A8114 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		842EC2E71EF94A2B005A8114 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		842EC2EA1EF94A2B005A8114 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		842EC2EC1EF94A2B005A8114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842EC2F11EF94A2C005A8114 /* AplicationSanteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AplicationSanteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		842EC2F51EF94A2C005A8114 /* AplicationSanteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AplicationSanteTests.swift; sourceTree = "<group>"; };
 		842EC2F71EF94A2C005A8114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +61,14 @@
 		842EC3151EF9537D005A8114 /* CreatePatienViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatePatienViewController.xib; path = ../CreatePatienViewController.xib; sourceTree = "<group>"; };
 		842EC3191EF95578005A8114 /* Patien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patien.swift; sourceTree = "<group>"; };
 		842EC31B1EF967F8005A8114 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		84386A2C1EFD08FD00DF4B28 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../test cartage/Carthage/Build/iOS/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		847750F21EFAA9E600A672BC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		847750F31EFAA9E600A672BC /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		847750F61EFABC1000A672BC /* names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = names.plist; sourceTree = "<group>"; };
+		847750FA1EFABEAC00A672BC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		84F8FE801EFBAB5200D0C7F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		84F8FE831EFBABAA00D0C7F0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		84F8FEC61EFC108F00D0C7F0 /* AccessBDD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessBDD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F8FE811EFBAB5200D0C7F0 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,10 +100,12 @@
 		842EC2D41EF94A2B005A8114 = {
 			isa = PBXGroup;
 			children = (
+				847750FA1EFABEAC00A672BC /* Default-568h@2x.png */,
 				842EC2DF1EF94A2B005A8114 /* AplicationSante */,
 				842EC2F41EF94A2C005A8114 /* AplicationSanteTests */,
 				842EC2FF1EF94A2C005A8114 /* AplicationSanteUITests */,
 				842EC2DE1EF94A2B005A8114 /* Products */,
+				84F8FE7F1EFBAB5200D0C7F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,11 +125,13 @@
 				842EC3181EF95565005A8114 /* Data */,
 				842EC3141EF9537D005A8114 /* CreatePatienViewController.swift */,
 				842EC3151EF9537D005A8114 /* CreatePatienViewController.xib */,
+				847750F21EFAA9E600A672BC /* SettingViewController.swift */,
+				847750F31EFAA9E600A672BC /* SettingViewController.xib */,
 				842EC2E01EF94A2B005A8114 /* AppDelegate.swift */,
+				847750F61EFABC1000A672BC /* names.plist */,
 				842EC2E41EF94A2B005A8114 /* Main.storyboard */,
 				842EC2E71EF94A2B005A8114 /* Assets.xcassets */,
 				842EC2E91EF94A2B005A8114 /* LaunchScreen.storyboard */,
-				842EC2EC1EF94A2B005A8114 /* Info.plist */,
 				842EC3101EF94F68005A8114 /* PatienTableViewController.swift */,
 				842EC31B1EF967F8005A8114 /* DetailViewController.swift */,
 			);
@@ -141,8 +160,19 @@
 			isa = PBXGroup;
 			children = (
 				842EC3191EF95578005A8114 /* Patien.swift */,
+				84F8FEC61EFC108F00D0C7F0 /* AccessBDD.swift */,
+				84F8FE821EFBABAA00D0C7F0 /* Model.xcdatamodeld */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		84F8FE7F1EFBAB5200D0C7F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84386A2C1EFD08FD00DF4B28 /* SwiftyJSON.framework */,
+				84F8FE801EFBAB5200D0C7F0 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				842EC2EB1EF94A2B005A8114 /* LaunchScreen.storyboard in Resources */,
+				847750F71EFABC1000A672BC /* names.plist in Resources */,
+				847750F51EFAA9E600A672BC /* SettingViewController.xib in Resources */,
 				842EC2E81EF94A2B005A8114 /* Assets.xcassets in Resources */,
 				842EC2E61EF94A2B005A8114 /* Main.storyboard in Resources */,
+				847750FB1EFABEAC00A672BC /* Default-568h@2x.png in Resources */,
 				842EC3171EF9537D005A8114 /* CreatePatienViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,8 +316,11 @@
 				842EC31A1EF95578005A8114 /* Patien.swift in Sources */,
 				842EC3111EF94F68005A8114 /* PatienTableViewController.swift in Sources */,
 				842EC31C1EF967F8005A8114 /* DetailViewController.swift in Sources */,
+				84F8FE841EFBABAA00D0C7F0 /* Model.xcdatamodeld in Sources */,
 				842EC2E11EF94A2B005A8114 /* AppDelegate.swift in Sources */,
 				842EC3161EF9537D005A8114 /* CreatePatienViewController.swift in Sources */,
+				84F8FEC71EFC108F00D0C7F0 /* AccessBDD.swift in Sources */,
+				847750F41EFAA9E600A672BC /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +586,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84F8FE821EFBABAA00D0C7F0 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84F8FE831EFBABAA00D0C7F0 /* Model.xcdatamodel */,
+			);
+			currentVersion = 84F8FE831EFBABAA00D0C7F0 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 842EC2D51EF94A2B005A8114 /* Project object */;
 }

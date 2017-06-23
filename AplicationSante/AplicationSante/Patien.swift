@@ -8,6 +8,34 @@
 
 import Foundation
 
+/**
+ * extension de la classe Patien pour les donner du CoreData (Réécriture du genre qui passe de Enum à Bool
+ */
+extension PatienData{
+    func nomComplet (ordreName : Bool) -> String {
+                
+        let gender = genre 
+    
+        
+        let particule : String
+        
+        if gender {
+            particule =  "M."
+        } else {
+            particule = "Mme."
+        }
+                
+        if ordreName {
+            return particule + " " + prenom! + " " + nom!
+        } else{
+            return particule + " " + nom! + " " + prenom!
+        }
+    }
+}
+
+/**
+ * classe Patien possédant un nom, un prenom, un commentaire en String et un genre (enum propre a la classe)
+ */
 class Patien{
     enum Genre:String {
         case homme = "M."
@@ -28,8 +56,12 @@ class Patien{
             
     }
         
-    func nomComplet () -> String {
-        return "\(genre.rawValue) \(nom) \(prenom)"
+    func nomComplet (ordreName : Bool) -> String {
+        if ordreName {
+            return "\(genre.rawValue) \(prenom) \(nom)"
+        } else{
+            return "\(genre.rawValue) \(nom) \(prenom)"
+        }
     }
     
     func commentaireShow() -> String {
